@@ -6,7 +6,9 @@ public enum Constants {
     MINOR_VERSION("0"),
     FIX_VERSION("0"),
     VERSION(String.format("%s.%s.%s", MAJOR_VERSION, MINOR_VERSION, FIX_VERSION)),
-    AUTHOR("FurYzen");
+    AUTHOR("FurYzen"),
+
+    PREFIX("§5Oneesan §7/> ");
 
     String name;
 

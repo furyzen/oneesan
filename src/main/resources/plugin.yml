@@ -3,3 +3,8 @@ description: Ara ara player-kun, ya cheating on my server ? <3
 version: 1.0.0
 author: FurYzen
 main: fr.furyzen.oneesan.OneeSanPlugin
+commands:
+  oneesan:
+    description: The main command for OneeSan.
+    usage: /<command>
+    aliases: [anticheat, ac]
