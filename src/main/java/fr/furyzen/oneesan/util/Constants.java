@@ -1,7 +1,7 @@
 package fr.furyzen.oneesan.util;
 
 public enum Constants {
-    NAME("Oneesan"),
+    NAME("OneeSan"),
     MAJOR_VERSION("1"),
     MINOR_VERSION("0"),
     FIX_VERSION("0"),
@@ -14,8 +14,7 @@ public enum Constants {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
+    @Override public String toString() {
         return name;
     }
 }

@@ -7,6 +7,10 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
 
+/*
+    Scraped class from a anticheat Discord, credit to the fume dev (not sure who it is sorry)
+    https://paste.gg/p/anonymous/3942fa2c0d234112ad4912da1fc6e19c
+ */
 public class Configuration {
 
     private File file;
