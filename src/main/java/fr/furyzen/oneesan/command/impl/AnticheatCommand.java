@@ -1,6 +1,8 @@
 package fr.furyzen.oneesan.command.impl;
 
 import fr.furyzen.oneesan.command.ACommand;
+import fr.furyzen.oneesan.command.impl.anticheat.DebugSubCommand;
+import fr.furyzen.oneesan.command.sub.SubCommand;
 import fr.furyzen.oneesan.util.Constants;
 import fr.furyzen.oneesan.util.theme.ThemeLoader;
 import org.bukkit.command.Command;
@@ -9,14 +11,29 @@ import org.bukkit.command.CommandSender;
 public class AnticheatCommand extends ACommand {
 
     public AnticheatCommand() {
-        super("anticheat", "oneesan.command");
+        super("anticheat", "oneesan");
+
+        addSubCommand(new DebugSubCommand(this));
     }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if(!sender.hasPermission(getPermission())) {
+        if(!sender.hasPermission(getPermission() + ".command")) {
             sender.sendMessage(format("<prefix> " + ThemeLoader.INSTANCE.get("<theme>.no-permission")));
             return true;
+        }
+
+        //TODO: help subcommand
+        if(args.length > 0) {
+            if(getSubCommandList().isEmpty()) return true;
+
+            for(SubCommand subCommand : getSubCommandList()) {
+                if(subCommand.getName().equalsIgnoreCase(args[0])) {
+                    subCommand.execute(sender, args);
+                    return true;
+                }
+                //TODO: no commands message thingy
+            }
         }
 
         sender.sendMessage(format("<prefix> " + ThemeLoader.INSTANCE.get("<theme>.tagline")));
