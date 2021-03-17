@@ -2,6 +2,7 @@ package fr.furyzen.oneesan;
 
 import fr.furyzen.oneesan.command.CommandManager;
 import fr.furyzen.oneesan.configuration.Configuration;
+import fr.furyzen.oneesan.util.theme.ThemeLoader;
 import lombok.Getter;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -20,6 +21,7 @@ public enum OneeSan {
         this.plugin = plugin;
 
         configuration = new Configuration();
+        ThemeLoader.INSTANCE.load(configuration);
         commandManager = new CommandManager(plugin);
     }
 

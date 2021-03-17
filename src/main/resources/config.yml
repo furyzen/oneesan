@@ -3,6 +3,4 @@
 #
 
 # The theme Oneesan should use
-#  -> {
-#     Oneesan
-#theme: "Oneesan"
+theme: "oneesan"

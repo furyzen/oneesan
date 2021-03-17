@@ -1,0 +1,6 @@
+oneesan:
+  name: "Oneesan"
+  prefix: "&5Oneesan &7/> "
+  tagline: "&dPlayer-kun&7, &7ready to &dpunish &7some bad boys ? &d<3"
+
+  no-permission: "&cYou do not have the permission to perform this command."
