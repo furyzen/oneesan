@@ -2,6 +2,7 @@ package fr.furyzen.oneesan.command.impl;
 
 import fr.furyzen.oneesan.command.ACommand;
 import fr.furyzen.oneesan.command.impl.anticheat.DebugSubCommand;
+import fr.furyzen.oneesan.command.impl.anticheat.HelpSubCommand;
 import fr.furyzen.oneesan.command.sub.SubCommand;
 import fr.furyzen.oneesan.util.Constants;
 import fr.furyzen.oneesan.util.theme.ThemeLoader;
@@ -13,6 +14,7 @@ public class AnticheatCommand extends ACommand {
     public AnticheatCommand() {
         super("anticheat", "oneesan");
 
+        addSubCommand(new HelpSubCommand(this));
         addSubCommand(new DebugSubCommand(this));
     }
 
@@ -29,11 +31,13 @@ public class AnticheatCommand extends ACommand {
 
             for(SubCommand subCommand : getSubCommandList()) {
                 if(subCommand.getName().equalsIgnoreCase(args[0])) {
-                    subCommand.execute(sender, args);
-                    return true;
+                    return subCommand.execute(sender, args);
                 }
                 //TODO: no commands message thingy
             }
+
+            sender.sendMessage(format("<prefix> " + ThemeLoader.INSTANCE.get("<theme>.invalid-command")));
+            return true;
         }
 
         sender.sendMessage(format("<prefix> " + ThemeLoader.INSTANCE.get("<theme>.tagline")));

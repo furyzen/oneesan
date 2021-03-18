@@ -8,7 +8,7 @@ import org.bukkit.command.CommandSender;
 public class DebugSubCommand extends SubCommand {
 
     public DebugSubCommand(ACommand parent) {
-        super(parent, "debug", "debug");
+        super(parent, "debug", "a simple debug command", "debug");
     }
 
     @Override

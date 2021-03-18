@@ -1,10 +1,9 @@
 package fr.furyzen.oneesan.command.sub;
 
 import fr.furyzen.oneesan.command.ACommand;
-import fr.furyzen.oneesan.util.theme.ThemeLoader;
+import fr.furyzen.oneesan.util.theme.ThemeHelper;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
 @Getter
@@ -12,7 +11,7 @@ import org.bukkit.command.CommandSender;
 public abstract class SubCommand {
 
     private ACommand parent;
-    private String name, permission;
+    private String name, description, permission;
 
 
     public String getPermission() {
@@ -21,9 +20,7 @@ public abstract class SubCommand {
 
     public abstract boolean execute(CommandSender sender, String[] args);
 
-    public String format(String originalString) {
-        return originalString
-                .replace("<prefix>", ThemeLoader.INSTANCE.get("<theme>.prefix"))
-                .replace("<name>", ThemeLoader.INSTANCE.get("<theme>.name")); // QUE JE SOIS AUSSI CON
-    }
+    protected String format(String originalString) {
+        return ThemeHelper.format(originalString);
+    } //why do i did that
 }
