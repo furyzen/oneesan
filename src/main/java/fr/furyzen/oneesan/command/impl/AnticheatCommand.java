@@ -21,7 +21,7 @@ public class AnticheatCommand extends ACommand {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(!sender.hasPermission(getPermission() + ".command")) {
-            sender.sendMessage(format("<prefix> " + ThemeLoader.INSTANCE.get("<theme>.no-permission")));
+            sender.sendMessage(format("<prefix>" + ThemeLoader.INSTANCE.get("<theme>.no-permission")));
             return true;
         }
 
@@ -36,11 +36,11 @@ public class AnticheatCommand extends ACommand {
                 //TODO: no commands message thingy
             }
 
-            sender.sendMessage(format("<prefix> " + ThemeLoader.INSTANCE.get("<theme>.invalid-command")));
+            sender.sendMessage(format("<prefix>" + ThemeLoader.INSTANCE.get("<theme>.invalid-command")));
             return true;
         }
 
-        sender.sendMessage(format("<prefix> " + ThemeLoader.INSTANCE.get("<theme>.tagline")));
+        sender.sendMessage(format("<prefix>" + ThemeLoader.INSTANCE.get("<theme>.tagline")));
         sender.sendMessage(String.format("   §7this server is running §c%s %s§7.", Constants.NAME.toString(), Constants.VERSION.toString()));
         sender.sendMessage("");
         return true;

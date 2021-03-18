@@ -15,7 +15,7 @@ public abstract class SubCommand {
 
 
     public String getPermission() {
-        return parent.getPermission() + "." + permission;
+        return permission;
     }
 
     public abstract boolean execute(CommandSender sender, String[] args);

@@ -13,5 +13,5 @@ oneesan:
   no-permission: "&dAra-ara&7, you &cdo not have &7the permission to perform this command."
   invalid-command: "&7The command entered &cdoes not exist&7, please use &c/anticheat help."
   no-command-found: "&cNo commands &7where found &dplayer-kun&7.. &d:c"
-  command-list: "&7There ya go &dhoney&7, &cyour commands list &d<3:"
+  command-list: "&7There ya go &dhoney&7, &cyour commands list &d<3&7:"
   command-listing-format: "  &7> &d/anticheat %s &7- &d%s"

@@ -8,27 +8,27 @@ import org.bukkit.command.CommandSender;
 public class HelpSubCommand extends SubCommand {
 
     public HelpSubCommand(ACommand parent) {
-        super(parent, "help", "provide a help for the commands of the anticheat.", "help");
+        super(parent, "help", "provide a list of the commands of the anticheat", "oneesan.help");
     }
 
     @Override
     public boolean execute(CommandSender sender, String[] args) {
         if(!sender.hasPermission(getPermission())) {
-            sender.sendMessage(format("<prefix> " + ThemeLoader.INSTANCE.get("<theme>.no-permission")));
+            sender.sendMessage(format("<prefix>" + ThemeLoader.INSTANCE.get("<theme>.no-permission")));
             return true;
         }
 
-        if(getParent().getSubCommandList().stream().noneMatch(subCommand -> sender.hasPermission(subCommand.getPermission()))) {
-            sender.sendMessage(format("<prefix> " + ThemeLoader.INSTANCE.get("<theme>.no-command-found")));
+        if(getParent().getSubCommandList().stream().filter(subCommand -> !subCommand.getName().equals("help")).noneMatch(subCommand -> sender.hasPermission(subCommand.getPermission()))) {
+            sender.sendMessage(format("<prefix>" + ThemeLoader.INSTANCE.get("<theme>.no-command-found")));
             return true;
         }
 
-        StringBuilder stringBuilder = new StringBuilder(format("<prefix> " + ThemeLoader.INSTANCE.get("<theme>.command-list")));
+        StringBuilder stringBuilder = new StringBuilder(format("<prefix>" + ThemeLoader.INSTANCE.get("<theme>.command-list")) + "\n");
 
-        getParent().getSubCommandList().stream().filter(subCommand -> sender.hasPermission(subCommand.getPermission()) && !subCommand.getName().equals("help")).forEach(subCommand -> stringBuilder.append(format(ThemeLoader.INSTANCE.get("<theme>.listing-format"))));
+        getParent().getSubCommandList().stream().filter(subCommand -> sender.hasPermission(subCommand.getPermission()) && !subCommand.getName().equals("help")).forEach(subCommand -> stringBuilder.append(String.format(format(ThemeLoader.INSTANCE.get("<theme>.command-listing-format")), subCommand.getName(), subCommand.getDescription()) + "\n"));
 
         sender.sendMessage(stringBuilder.toString());
         sender.sendMessage("");
-        return false;
+        return true;
     }
 }
