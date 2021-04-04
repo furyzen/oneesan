@@ -25,7 +25,7 @@ public class HelpSubCommand extends SubCommand {
 
         StringBuilder stringBuilder = new StringBuilder(format("<prefix>" + ThemeLoader.INSTANCE.get("<theme>.command-list")) + "\n");
 
-        getParent().getSubCommandList().stream().filter(subCommand -> sender.hasPermission(subCommand.getPermission()) && !subCommand.getName().equals("help")).forEach(subCommand -> stringBuilder.append(String.format(format(ThemeLoader.INSTANCE.get("<theme>.command-listing-format")), subCommand.getName(), subCommand.getDescription()) + "\n"));
+        getParent().getSubCommandList().stream().filter(subCommand -> sender.hasPermission(subCommand.getPermission()) && !subCommand.getName().equals("help")).forEach(subCommand -> stringBuilder.append(String.format(format(ThemeLoader.INSTANCE.get("<theme>.command-listing-format")), subCommand.getName(), subCommand.getDescription())).append("\n"));
 
         sender.sendMessage(stringBuilder.toString());
         sender.sendMessage("");

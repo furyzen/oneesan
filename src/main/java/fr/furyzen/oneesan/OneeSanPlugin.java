@@ -5,8 +5,13 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class OneeSanPlugin extends JavaPlugin {
 
     @Override
+    public void onLoad() {
+        OneeSan.INSTANCE.load(this);
+    }
+
+    @Override
     public void onEnable() {
-        OneeSan.INSTANCE.initialize(this);
+        OneeSan.INSTANCE.initialize();
     }
 
     @Override
