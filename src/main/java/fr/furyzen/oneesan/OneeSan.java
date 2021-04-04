@@ -49,6 +49,7 @@ public enum OneeSan {
 
     void stop() {
         PacketEvents.get().terminate();
+        userManager.clear();
         configuration.save();
     }
 }
