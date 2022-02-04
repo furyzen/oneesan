@@ -22,7 +22,7 @@ public class FlightA extends Check {
 
             final double threshold = midAir ? 0.001 : 0.033; //yeah ik, lazy 0.03 fix
 
-            if (Math.abs(pred - data.getMotionY()) > threshold && air) {
+            if (Math.abs(pred - data.getMotionY()) > threshold && air && data.getMotionXZ() > 0.01) {
                 if (++buffer > 4)
                     flag(user, String.format("diff=%f", Math.abs(pred - data.getMotionY())));
             } else if(buffer > 0) buffer -= 0.1D;
