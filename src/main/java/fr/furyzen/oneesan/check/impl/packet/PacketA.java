@@ -16,7 +16,7 @@ public class PacketA extends Check {
     public void handle(User user, OSPacket packet) {
         PlayerData data = user.getPlayerData();
 
-        if(packet.getPacketType().equals(PacketType.Play.Client.PLAYER_FLYING)) {
+        if(packet.isRot()) {
             final float pitch = data.getPitch();
 
             if (Math.abs(pitch) > 90) {

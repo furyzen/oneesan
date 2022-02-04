@@ -18,6 +18,8 @@ public abstract class Check {
     private final String name = getClass().getAnnotation(ICheck.class).name();
     private final CheckState checkState = getClass().getAnnotation(ICheck.class).checkState();
 
+    protected double buffer = 0;
+
     protected TimeHelper flagTimer;
 
     public Check() {

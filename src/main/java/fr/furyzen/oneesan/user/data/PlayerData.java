@@ -11,13 +11,15 @@ public class PlayerData {
 
     private double x, y, z,
             lastX, lastY, lastZ,
-            motionX, motionY, motionZ,
-            lastMotionX, lastMotionY, lastMotionZ;
+            motionX, motionY, motionZ, motionXZ,
+            lastMotionX, lastMotionY, lastMotionZ, lastMotionXZ;
 
     private float yaw, pitch, deltaYaw, deltaPitch, lastYaw, lastPitch,
             lastDeltaYaw, lastDeltaPitch, accelYaw, accelPitch;
 
-    private boolean onGroundClient, onGroundServer;
+    private boolean onGroundClient, onGroundServer, liquid, ice, web, climbable, collisionOnGround;
+
+    private int clientAirTicks;
 
     private ClientVersion clientVersion;
 }

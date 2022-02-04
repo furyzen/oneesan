@@ -18,12 +18,12 @@ public class CollisionProcessor {
     private final PlayerData data;
     private final List<Block> collidingBlocks = new ArrayList<>();
 
-    //TODO MORE
-    private boolean liquid, ice, web, climbable, collisionOnGround;
+
+
 
     public void handle(WrapperPlayClientPlayerPosition wrapper) {
 
-        this.collidingBlocks.clear();
+
 
         final Vector3d pos = wrapper.getPosition();
         final Location location = new Location(data.getPlayer().getWorld(), pos.x, pos.y, pos.z);
@@ -47,7 +47,7 @@ public class CollisionProcessor {
 
     public void handle(WrapperPlayClientPlayerPositionAndRotation wrapper) {
 
-        this.collidingBlocks.clear();
+
 
         final Vector3d pos = wrapper.getPosition();
         final Location location = new Location(data.getPlayer().getWorld(), pos.x, pos.y, pos.z);
@@ -68,11 +68,17 @@ public class CollisionProcessor {
     }
 
     private void update() {
-        this.collisionOnGround = collidingBlocks.stream().anyMatch(block -> block.getType() != Material.AIR);
-        this.liquid = collidingBlocks.stream().anyMatch(Block::isLiquid);
-        this.web = collidingBlocks.stream().anyMatch(block -> block.getType() == Material.WEB);
-        this.climbable = collidingBlocks.stream().anyMatch(block -> block.getType() == Material.VINE || block.getType() == Material.LADDER);
-        this.ice = collidingBlocks.stream().anyMatch(block -> block.getType() == Material.ICE || block.getType() == Material.PACKED_ICE);
+        data.setCollisionOnGround( collidingBlocks.stream().anyMatch(block -> block.getType() != Material.AIR));
+        data.setLiquid(collidingBlocks.stream().anyMatch(Block::isLiquid));
+        data.setWeb(collidingBlocks.stream().anyMatch(block -> block.getType() == Material.WEB));
+        data.setClimbable(collidingBlocks.stream().anyMatch(block -> block.getType() == Material.VINE || block.getType() == Material.LADDER));
+        data.setIce(collidingBlocks.stream().anyMatch(block -> block.getType() == Material.ICE || block.getType() == Material.PACKED_ICE));
+
+        if(data.isOnGroundClient())
+            data.setClientAirTicks(0);
+        else data.setClientAirTicks(data.getClientAirTicks() + 1);
+
+        collidingBlocks.clear();
 
     }
 

@@ -2,6 +2,7 @@ package fr.furyzen.oneesan.user;
 
 
 import fr.furyzen.oneesan.check.Check;
+import fr.furyzen.oneesan.check.impl.flight.FlightA;
 import fr.furyzen.oneesan.check.impl.packet.PacketA;
 import fr.furyzen.oneesan.user.data.PlayerData;
 import fr.furyzen.oneesan.user.processor.CollisionProcessor;
@@ -47,6 +48,7 @@ public class User {
 
     void initializeChecks() {
         checks.add(new PacketA());
+        checks.add(new FlightA());
     }
 
     public int getViolation(Check check) {
