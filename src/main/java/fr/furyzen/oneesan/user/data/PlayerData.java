@@ -1,19 +1,22 @@
 package fr.furyzen.oneesan.user.data;
 
-import fr.furyzen.oneesan.user.User;
-import io.github.retrooper.packetevents.utils.player.ClientVersion;
-import lombok.Getter;
-import lombok.Setter;
+import com.github.retrooper.packetevents.protocol.player.ClientVersion;
+import lombok.Data;
+import org.bukkit.entity.Player;
 
-@Getter
-@Setter
+@Data
 public class PlayerData {
 
-    final User user;
+    final Player player;
 
-    public PlayerData(User user) {
-        this.user = user;
-    }
+    double x, y, z,
+            lastX, lastY, lastZ,
+            motionX, motionY, motionZ,
+            lastMotionX, lastMotionY, lastMotionZ;
+
+    float yaw, pitch;
+
+    boolean onGroundClient, onGroundServer;
 
     ClientVersion clientVersion;
 }

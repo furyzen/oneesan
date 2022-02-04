@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>fr.furyzen</groupId>
-    <artifactId>OneeSan</artifactId>
+    <groupId>fr.furyzen.oneesan</groupId>
+    <artifactId>Oneesan</artifactId>
     <version>1.0.0</version>
 
     <properties>
@@ -32,7 +32,7 @@
                             <relocations>
                                 <relocation>
                                     <pattern>io.github.retrooper.packetevents</pattern>
-                                    <shadedPattern>fr.furyzen.oneesan.packetevents</shadedPattern> <!--relocate packetevents package-->
+                                    <shadedPattern>fr.furyzen.oneesan.packetevents</shadedPattern>
                                 </relocation>
                             </relocations>
                         </configuration>
@@ -42,6 +42,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
                 <configuration>
                     <source>8</source>
                     <target>8</target>
@@ -55,7 +56,6 @@
             </resource>
         </resources>
     </build>
-
     <repositories>
         <repository>
             <id>jitpack-repo</id>
@@ -72,10 +72,10 @@
     </repositories>
     <dependencies>
         <dependency>
-            <groupId>org.spigotmc</groupId>
-            <artifactId>spigot-api</artifactId>
-            <version>1.8.8-R0.1-SNAPSHOT</version>
-            <scope>provided</scope>
+            <groupId>com.github.retrooper.packetevents</groupId>
+            <artifactId>spigot</artifactId>
+            <version>2.0-deec409f02-1</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.github.spigot</groupId>
@@ -84,14 +84,9 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.github.retrooper</groupId>
-            <artifactId>packetevents</artifactId>
-            <version>1.8-pre-9</version>
-        </dependency>
-        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.16</version>
+            <version>1.18.22</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

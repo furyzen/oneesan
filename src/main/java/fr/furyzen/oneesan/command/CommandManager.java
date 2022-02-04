@@ -1,19 +1,19 @@
 package fr.furyzen.oneesan.command;
 
-import fr.furyzen.oneesan.command.impl.AnticheatCommand;
-import org.bukkit.plugin.java.JavaPlugin;
+import fr.furyzen.oneesan.command.impl.HelpCommand;
+import lombok.Getter;
 
+import java.util.ArrayList;
+import java.util.List;
+
+@Getter
 public class CommandManager {
 
-    final JavaPlugin plugin;
+    private final List<Command> commandList;
 
-    public CommandManager(JavaPlugin plugin) {
-        this.plugin = plugin;
+    public CommandManager() {
+        commandList = new ArrayList<>();
 
-        addCommand(new AnticheatCommand());
-    }
-
-    public void addCommand(ACommand command) {
-        plugin.getCommand(command.getName()).setExecutor(command);
+        commandList.add(new HelpCommand());
     }
 }

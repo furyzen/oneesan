@@ -1,10 +1,10 @@
-name: OneeSan
-description: Ara ara player-kun, ya cheating on my server ? <3
+name: Oneesan
+description: Ara ara player-kun, are ya cheating on my server ? <3
 version: 1.0.0
+main: fr.furyzen.oneesan.OneesanPlugin
 author: FurYzen
-main: fr.furyzen.oneesan.OneeSanPlugin
 commands:
   oneesan:
-    description: The main command for OneeSan.
+    description: The main command for Oneesan.
     usage: /<command>
     aliases: [anticheat, ac]

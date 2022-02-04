@@ -4,14 +4,33 @@
 # How to use:
 #  - for creating a new theme, you need to create a new entry, and modifying the strings for your liking (IMPORTANT: You NEED to provide a string for all of the entries, or the themeloader will have a bad time.)
 #  IMPORTANT: DO NOT delete the '%s' strings on the entry, Oneesan actually compute them with a String.format, if one '%s' is missing, the plugin will crash.
-#
+#   then, to use the theme you want, change the theme in config.yml, or use the /os theme command.
 oneesan:
   name: "Oneesan"
   prefix: "&5Oneesan &7/> "
   tagline: "&dPlayer-kun&7, &7ready to &dpunish &7some bad boys ? &d<3"
+
+  flag-message: "&7[&d!&7]&7 &d%s &7has flagged &d%s&7 %s"
+  flag-experimental: "&7(&dExperimental&7)"
+  flag-violationcounter: "&7(&8x&d%s&7)"
 
   no-permission: "&dAra-ara&7, you &cdo not have &7the permission to perform this command."
   invalid-command: "&7The command entered &cdoes not exist&7, please use &c/anticheat help."
   no-command-found: "&cNo commands &7where found &dplayer-kun&7.. &d:c"
   command-list: "&7There ya go &dhoney&7, &cyour commands list &d<3&7:"
   command-listing-format: "  &7> &d/anticheat %s &7- &d%s"
+
+megumin:
+    name: "Megumin"
+    prefix: "&cMegumin &7-> "
+    tagline: "&7Wanna &cblow up &7some cheaters mate ?"
+
+    flag-message: "&7[&c!&7]&7 &c%s &7has flagged &c%s&7 "
+    flag-experimental: "&7(&cExperimental&7)"
+    flag-violationcounter: "&7(&8x&c%s&7)"
+
+    no-permission: "&7You do not have the permission to perform this command."
+    invalid-command: "&7The command entered &cdoes not exist&7, please use &c/anticheat help."
+    no-command-found: "&cNo commands &7where found &8:pout:"
+    command-list: "&cKasuma&7, &ckasuma &7! &cI didn't found any commands &7:c"
+    command-listing-format: "  &7-> &c/megumin %s &7- %s"
