@@ -17,10 +17,10 @@ public class PacketA extends Check {
         PlayerData data = user.getPlayerData();
 
         if(packet.getPacketType().equals(PacketType.Play.Client.PLAYER_FLYING)) {
-            float[] rotations = new float[] { data.getYaw(), data.getPitch() };
+            final float pitch = data.getPitch();
 
-            if (Math.abs(rotations[1]) > 90) {
-                flag(user, String.format("yaw=%f,pitch=%f", rotations[0], rotations[1]));
+            if (Math.abs(pitch) > 90) {
+                flag(user, String.format("pitch=%f", pitch));
             }
         }
     }

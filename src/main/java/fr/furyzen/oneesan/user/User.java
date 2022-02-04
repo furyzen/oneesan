@@ -4,7 +4,9 @@ package fr.furyzen.oneesan.user;
 import fr.furyzen.oneesan.check.Check;
 import fr.furyzen.oneesan.check.impl.packet.PacketA;
 import fr.furyzen.oneesan.user.data.PlayerData;
+import fr.furyzen.oneesan.user.processor.CollisionProcessor;
 import fr.furyzen.oneesan.user.processor.PositionProcessor;
+import fr.furyzen.oneesan.user.processor.RotationProcessor;
 import lombok.Getter;
 import org.bukkit.entity.Player;
 
@@ -20,6 +22,8 @@ public class User {
     final PlayerData playerData;
 
     private final PositionProcessor positionProcessor;
+    private final RotationProcessor rotationProcessor;
+    private final CollisionProcessor collisionProcessor;
 
     private final Map<Check, Integer> violations;
     private final List<Check> checks;
@@ -33,6 +37,8 @@ public class User {
         violations = new HashMap<>();
 
         positionProcessor = new PositionProcessor(getPlayerData());
+        this.rotationProcessor = new RotationProcessor(getPlayerData());
+        this.collisionProcessor = new CollisionProcessor(getPlayerData());
 
         initializeChecks();
 

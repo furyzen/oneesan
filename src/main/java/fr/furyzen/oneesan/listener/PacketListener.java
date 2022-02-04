@@ -34,10 +34,15 @@ public class PacketListener extends PacketListenerAbstract {
 				user.getPositionProcessor().handle(new WrapperPlayClientPlayerFlying<>(event));
 			} else if (PacketType.Play.Client.PLAYER_POSITION.equals(packetType)) {
 				user.getPositionProcessor().handle(new WrapperPlayClientPlayerPosition(event));
+				user.getCollisionProcessor().handle(new WrapperPlayClientPlayerPosition(event));
 			} else if (PacketType.Play.Client.PLAYER_ROTATION.equals(packetType)) {
 				user.getPositionProcessor().handle(new WrapperPlayClientPlayerRotation(event));
+				user.getRotationProcessor().handle(new WrapperPlayClientPlayerRotation(event));
 			} else if (PacketType.Play.Client.PLAYER_POSITION_AND_ROTATION.equals(packetType)) {
 				user.getPositionProcessor().handle(new WrapperPlayClientPlayerPositionAndRotation(event));
+				user.getRotationProcessor().handle(new WrapperPlayClientPlayerPositionAndRotation(event));
+				user.getCollisionProcessor().handle(new WrapperPlayClientPlayerPositionAndRotation(event));
+
 			}
 
 			user.getChecks().forEach(check ->

@@ -7,16 +7,17 @@ import org.bukkit.entity.Player;
 @Data
 public class PlayerData {
 
-    final Player player;
+    private final Player player;
 
-    double x, y, z,
+    private double x, y, z,
             lastX, lastY, lastZ,
             motionX, motionY, motionZ,
             lastMotionX, lastMotionY, lastMotionZ;
 
-    float yaw, pitch;
+    private float yaw, pitch, deltaYaw, deltaPitch, lastYaw, lastPitch,
+            lastDeltaYaw, lastDeltaPitch, accelYaw, accelPitch;
 
-    boolean onGroundClient, onGroundServer;
+    private boolean onGroundClient, onGroundServer;
 
-    ClientVersion clientVersion;
+    private ClientVersion clientVersion;
 }
