@@ -29,7 +29,7 @@ public class PacketListener extends PacketListenerAbstract {
 			PacketTypeCommon packetType = event.getPacketType();
 
 			if (PacketType.Play.Client.PLAYER_FLYING.equals(packetType)) {
-				user.getPositionProcessor().handle(new WrapperPlayClientPlayerFlying<>(event));
+				user.getPositionProcessor().handleF(new WrapperPlayClientPlayerFlying(event));
 			} else if (PacketType.Play.Client.PLAYER_POSITION.equals(packetType)) {
 				user.getPositionProcessor().handle(new WrapperPlayClientPlayerPosition(event));
 				user.getCollisionProcessor().handle(new WrapperPlayClientPlayerPosition(event));
