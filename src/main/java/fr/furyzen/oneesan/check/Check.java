@@ -35,8 +35,8 @@ public abstract class Check {
 
         if(flagTimer.hasPassed(Oneesan.INSTANCE.getConfiguration().getConfiguration().getInt("flagTimer"))) {
             Bukkit.getOnlinePlayers().stream().map(usr -> Oneesan.INSTANCE.getUserManager().getUser(usr)).filter(User::isAlerts).forEach(usr -> {
-                String message = String.format(ThemeLoader.INSTANCE.get("<theme>.flag-message"), user.getPlayer().getName(), getName(),
-                        experimental ? ThemeLoader.INSTANCE.get("<theme>.flag-experimental") : String.format(ThemeLoader.INSTANCE.get("<theme>.flag-violationcounter"), user.getViolation(this)));
+                String message = String.format(ThemeLoader.getInstance().get("<theme>.flag-message"), user.getPlayer().getName(), getName(),
+                        experimental ? ThemeLoader.getInstance().get("<theme>.flag-experimental") : String.format(ThemeLoader.getInstance().get("<theme>.flag-violationcounter"), user.getViolation(this)));
 
                 TextComponent component = new TextComponent(message);
                 TextComponent hoverComponent = new TextComponent(String.format("§d%s§r", detectionInfo));

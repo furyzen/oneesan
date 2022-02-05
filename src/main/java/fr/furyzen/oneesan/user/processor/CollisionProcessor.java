@@ -18,13 +18,7 @@ public class CollisionProcessor {
     private final PlayerData data;
     private final List<Block> collidingBlocks = new ArrayList<>();
 
-
-
-
     public void handle(WrapperPlayClientPlayerPosition wrapper) {
-
-
-
         final Vector3d pos = wrapper.getPosition();
         final Location location = new Location(data.getPlayer().getWorld(), pos.x, pos.y, pos.z);
 
@@ -33,22 +27,12 @@ public class CollisionProcessor {
         for (double locX = location.getX(); locX <= distanceToGround; locX += 0.03125f) {
             for (double locZ = location.getZ(); locZ <= distanceToGround; locZ += 0.03125f) {
                 collidingBlocks.add(new Location(data.getPlayer().getWorld(), locX, -0.005, locZ).getBlock());
-
             }
-
-
         }
-
         update();
-
-
     }
 
-
     public void handle(WrapperPlayClientPlayerPositionAndRotation wrapper) {
-
-
-
         final Vector3d pos = wrapper.getPosition();
         final Location location = new Location(data.getPlayer().getWorld(), pos.x, pos.y, pos.z);
 
@@ -57,14 +41,9 @@ public class CollisionProcessor {
         for (double locX = location.getX(); locX <= distanceToGround; locX += 0.03125f) {
             for (double locZ = location.getZ(); locZ <= distanceToGround; locZ += 0.03125f) {
                 collidingBlocks.add(new Location(data.getPlayer().getWorld(), locX, -0.005, locZ).getBlock());
-
             }
-
-
         }
-
         update();
-
     }
 
     private void update() {
@@ -79,7 +58,6 @@ public class CollisionProcessor {
         else data.setClientAirTicks(data.getClientAirTicks() + 1);
 
         collidingBlocks.clear();
-
     }
 
 }

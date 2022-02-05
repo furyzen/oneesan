@@ -11,7 +11,6 @@ public class RotationProcessor {
     private final PlayerData data;
 
     public void handle(WrapperPlayClientPlayerRotation wrapper) {
-
         data.setLastYaw(data.getYaw());
         data.setLastPitch(data.getPitch());
 
@@ -26,11 +25,9 @@ public class RotationProcessor {
 
         data.setAccelYaw(data.getDeltaYaw() - data.getLastDeltaYaw());
         data.setAccelPitch(data.getDeltaPitch() - data.getLastDeltaPitch());
-
     }
 
     public void handle(WrapperPlayClientPlayerPositionAndRotation wrapper) {
-
         data.setLastYaw(data.getYaw());
         data.setLastPitch(data.getPitch());
 
@@ -46,7 +43,4 @@ public class RotationProcessor {
         data.setAccelYaw(data.getDeltaYaw() - data.getLastDeltaYaw());
         data.setAccelPitch(data.getDeltaPitch() - data.getLastDeltaPitch());
     }
-
-
-
 }

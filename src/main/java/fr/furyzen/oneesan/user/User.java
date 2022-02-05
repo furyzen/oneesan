@@ -19,8 +19,8 @@ import java.util.Map;
 @Getter
 public class User {
 
-    final Player player;
-    final PlayerData playerData;
+    private final Player player;
+    private final PlayerData playerData;
 
     private final PositionProcessor positionProcessor;
     private final RotationProcessor rotationProcessor;
@@ -28,18 +28,19 @@ public class User {
 
     private final Map<Check, Integer> violations;
     private final List<Check> checks;
+
     public boolean alerts;
 
     public User(Player player) {
         this.player = player;
-        this.playerData = new PlayerData(player);
+        playerData = new PlayerData(player);
 
         checks = new ArrayList<>();
         violations = new HashMap<>();
 
         positionProcessor = new PositionProcessor(getPlayerData());
-        this.rotationProcessor = new RotationProcessor(getPlayerData());
-        this.collisionProcessor = new CollisionProcessor(getPlayerData());
+        rotationProcessor = new RotationProcessor(getPlayerData());
+        collisionProcessor = new CollisionProcessor(getPlayerData());
 
         initializeChecks();
 
@@ -55,13 +56,12 @@ public class User {
         return violations.getOrDefault(check, 0);
     }
 
-    public void resetViolation() {
+    public void resetViolations() {
         violations.clear();
     }
 
     public int getViolations() {
-        if(violations.isEmpty()) return 0;
-        return violations.values().stream().mapToInt(value -> value).sum();
+        return violations.isEmpty() ? 0 : violations.values().stream().mapToInt(value -> value).sum();
     }
 
     public void addViolation(Check check) {

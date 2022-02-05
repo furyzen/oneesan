@@ -2,6 +2,7 @@ package fr.furyzen.oneesan.util.theme;
 
 import fr.furyzen.oneesan.Oneesan;
 import fr.furyzen.oneesan.configuration.Configuration;
+import lombok.Getter;
 import lombok.SneakyThrows;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -11,40 +12,40 @@ import java.io.File;
 import java.io.IOException;
 
 //TODO: make a thememanager, i guess lol ?
-public enum ThemeLoader {
-    INSTANCE;
+public class ThemeLoader {
 
-    private File themeFile;
+    @Getter private static ThemeLoader instance;
 
+    private final File themeFile;
     private FileConfiguration themeConfiguration;
     private String theme;
 
+    public ThemeLoader() {
+        instance = this;
 
-    private void saveFile() {
-        this.themeFile = new File(Oneesan.INSTANCE.getPlugin().getDataFolder(), "theme.yml");
-        this.themeConfiguration = YamlConfiguration.loadConfiguration(themeFile);
-
-        try {
-            themeConfiguration.save(themeFile);
-        } catch (IOException e) {
-            e.printStackTrace();
+        themeFile = new File(Oneesan.INSTANCE.getPlugin().getDataFolder(), "theme.yml");
+        if (!themeFile.exists()) {
+            themeFile.getParentFile().mkdirs();
+            Oneesan.INSTANCE.getPlugin().saveResource("theme.yml", false);
         }
     }
 
     @SneakyThrows
     public void load(Configuration configuration) {
-        saveFile();
-
-        if(themeFile.length() == 0) {
-            themeConfiguration.options().copyDefaults(true);
-        }
-
-        theme = configuration.getConfiguration().getString("theme");
-
         (themeConfiguration = new YamlConfiguration()).load(this.themeFile);
 
+        theme = configuration.getConfiguration().getString("theme");
+    }
 
+    @SneakyThrows
+    public void save() {
+        themeConfiguration.save(this.themeFile);
+        reload();
+    }
 
+    @SneakyThrows
+    public void reload() {
+        themeConfiguration = YamlConfiguration.loadConfiguration(this.themeFile);
     }
 
     public String get(String path) {

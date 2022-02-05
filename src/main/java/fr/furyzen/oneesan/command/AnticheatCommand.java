@@ -20,7 +20,7 @@ public class AnticheatCommand implements CommandExecutor {
         }
         if (args.length > 0) {
             if (Oneesan.INSTANCE.getCommandManager().getCommandList().isEmpty()) {
-                sender.sendMessage(ThemeHelper.format("<prefix>" + ThemeLoader.INSTANCE.get("<theme>.no-command-found")));
+                sender.sendMessage(ThemeHelper.format("<prefix>" + ThemeLoader.getInstance().get("<theme>.no-command-found")));
                 return true;
             }
             for (fr.furyzen.oneesan.command.Command command : Oneesan.INSTANCE.getCommandManager().getCommandList()) {
@@ -29,7 +29,7 @@ public class AnticheatCommand implements CommandExecutor {
                 }
             }
 
-            sender.sendMessage(ThemeHelper.format("<prefix>" + ThemeLoader.INSTANCE.get("<theme>.invalid-command")));
+            sender.sendMessage(ThemeHelper.format("<prefix>" + ThemeLoader.getInstance().get("<theme>.invalid-command")));
             return true;
         }
 
@@ -39,7 +39,7 @@ public class AnticheatCommand implements CommandExecutor {
 
     // i had no ideas for the method name lol
     void sendInfoMessage(CommandSender sender) {
-        sender.sendMessage(ThemeHelper.format("<prefix>" + ThemeLoader.INSTANCE.get("<theme>.tagline")));
+        sender.sendMessage(ThemeHelper.format("<prefix>" + ThemeLoader.getInstance().get("<theme>.tagline")));
         sender.sendMessage(String.format("   §7this server is running §c%s %s§7.", Constants.NAME, Constants.VERSION));
         sender.sendMessage("");
     }

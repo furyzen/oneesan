@@ -16,10 +16,14 @@ public class Configuration {
     @SneakyThrows
     public Configuration() {
         configurationFile = new File(Oneesan.INSTANCE.getPlugin().getDataFolder(), "config.yml");
-        if (!configurationFile.exists())
-            if(configurationFile.getParentFile().mkdirs())
-                Oneesan.INSTANCE.getPlugin().saveResource("config.yml", false);
+        if (!configurationFile.exists()) {
+            configurationFile.getParentFile().mkdirs();
+            Oneesan.INSTANCE.getPlugin().saveResource("config.yml", false);
+        }
+    }
 
+    @SneakyThrows
+    public void load() {
         (configuration = new YamlConfiguration()).load(this.configurationFile);
     }
 

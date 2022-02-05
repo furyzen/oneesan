@@ -1,7 +1,5 @@
 package fr.furyzen.oneesan.check.impl.packet;
 
-import com.github.retrooper.packetevents.protocol.packettype.PacketType;
-import com.github.retrooper.packetevents.protocol.packettype.PacketTypeCommon;
 import fr.furyzen.oneesan.check.Check;
 import fr.furyzen.oneesan.check.CheckState;
 import fr.furyzen.oneesan.check.ICheck;
@@ -16,7 +14,7 @@ public class PacketA extends Check {
     public void handle(User user, OSPacket packet) {
         PlayerData data = user.getPlayerData();
 
-        if(packet.isRot()) {
+        if(packet.isRotation()) {
             final float pitch = data.getPitch();
 
             if (Math.abs(pitch) > 90) {

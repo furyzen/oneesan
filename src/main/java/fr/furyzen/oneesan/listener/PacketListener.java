@@ -2,9 +2,7 @@ package fr.furyzen.oneesan.listener;
 
 import com.github.retrooper.packetevents.event.PacketListenerAbstract;
 import com.github.retrooper.packetevents.event.PacketListenerPriority;
-import com.github.retrooper.packetevents.event.impl.PacketReceiveEvent;
-import com.github.retrooper.packetevents.event.impl.PacketSendEvent;
-import com.github.retrooper.packetevents.event.impl.PostPlayerInjectEvent;
+import com.github.retrooper.packetevents.event.impl.*;
 import com.github.retrooper.packetevents.protocol.packettype.PacketType;
 import com.github.retrooper.packetevents.protocol.packettype.PacketTypeCommon;
 import com.github.retrooper.packetevents.protocol.player.ClientVersion;
@@ -60,6 +58,23 @@ public class PacketListener extends PacketListenerAbstract {
 					check.handle(user,
 							new OSPacket(event, event.getPacketType(), OSPacket.Direction.SEND)));
 		}
+	}
+
+	@Override
+	public void onPlayerInject(PlayerInjectEvent event) {
+		Player player = (Player) event.getPlayer();
+		User user = new User(player);
+
+		Oneesan.INSTANCE.getUserManager().add(player.getUniqueId(), user);
+	}
+
+	@Override
+	public void onPlayerEject(PlayerEjectEvent event) {
+		Player player = (Player) event.getPlayer();
+		User user = Oneesan.INSTANCE.getUserManager().getUser(player);
+		if(user == null) return;
+
+		Oneesan.INSTANCE.getUserManager().remove(user);
 	}
 
 	@Override

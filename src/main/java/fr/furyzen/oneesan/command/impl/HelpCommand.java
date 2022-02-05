@@ -11,15 +11,15 @@ public class HelpCommand extends Command {
     @Override
     public boolean execute(CommandSender sender, String[] args) {
         if(!sender.hasPermission(getPermission())) {
-            sender.sendMessage(format("<prefix>" + ThemeLoader.INSTANCE.get("<theme>.no-permission")));
+            sender.sendMessage(format("<prefix>" + ThemeLoader.getInstance().get("<theme>.no-permission")));
             return true;
         }
 
-        StringBuilder stringBuilder = new StringBuilder(format("<prefix>" + ThemeLoader.INSTANCE.get("<theme>.command-list")) + "\n");
+        StringBuilder stringBuilder = new StringBuilder(format("<prefix>" + ThemeLoader.getInstance().get("<theme>.command-list")) + "\n");
 
         oneesan.getCommandManager().getCommandList().stream().filter(command ->
                 sender.hasPermission(command.getPermission())).forEach(command ->
-                stringBuilder.append(String.format(format(ThemeLoader.INSTANCE.get("<theme>.command-listing-format")), command.getNames()[0], command.getDescription())).append("\n"));
+                stringBuilder.append(String.format(format(ThemeLoader.getInstance().get("<theme>.command-listing-format")), command.getNames()[0], command.getDescription())).append("\n"));
 
         sender.sendMessage(stringBuilder.toString());
         sender.sendMessage("");

@@ -19,7 +19,6 @@ public class PositionProcessor {
     }
 
     public void handle(WrapperPlayClientPlayerPosition wrapper) {
-
         playerData.setLastX(playerData.getX());
         playerData.setLastY(playerData.getY());
         playerData.setLastZ(playerData.getZ());
@@ -35,12 +34,7 @@ public class PositionProcessor {
         playerData.setMotionX(playerData.getLastX() - playerData.getX());
         playerData.setMotionY(playerData.getLastY() - playerData.getY());
         playerData.setMotionZ(playerData.getLastZ() - playerData.getZ());
-
-
-
     }
-
-
 
     public void handle(WrapperPlayClientPlayerPositionAndRotation wrapper) {
         playerData.setLastX(playerData.getX());
@@ -58,6 +52,5 @@ public class PositionProcessor {
         playerData.setMotionX(playerData.getLastX() - playerData.getX());
         playerData.setMotionY(playerData.getLastY() - playerData.getY());
         playerData.setMotionZ(playerData.getLastZ() - playerData.getZ());
-
     }
 }
