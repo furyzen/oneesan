@@ -26,12 +26,12 @@ public class CollisionProcessor {
         final Vector3d pos = new Vector3d(data.getX(), data.getY(), data.getZ());
 
         final double offsetXZ = 0.3D + 0.125D;
-        final double offsetY = 0.005D;
+        final double offsetY = 0.5001D;
 
         for (double locX = pos.x - offsetXZ; locX <= pos.x + offsetXZ; locX += 0.03125f) {
             for (double locY = pos.y - offsetY; locY <= pos.y + (1.8D + offsetY); locY += 0.03125f) {
                 for (double locZ = pos.z - offsetXZ; locZ <= pos.z + offsetXZ; locZ += 0.03125f) {
-                    Block block = new Location(data.getPlayer().getWorld(), locX, locY, locZ).getBlock();
+                    final Block block = new Location(data.getPlayer().getWorld(), locX, locY, locZ).getBlock();
                     if(!collidingBlocks.contains(block)) {
                         collidingBlocks.add(block);
                     }
@@ -44,12 +44,12 @@ public class CollisionProcessor {
         final Vector3d pos = new Vector3d(data.getX(), data.getY(), data.getZ());
 
         final double offsetXZ = 0.3D + 0.125D;
-        final double offsetY = 0.005D;
+        final double offsetY = 0.5001D;
 
         for (double locX = pos.x - offsetXZ; locX <= pos.x + offsetXZ; locX += 0.03125f) {
             for (double locY = pos.y - offsetY; locY <= pos.y + (1.8D + offsetY); locY += 0.03125f) {
                 for (double locZ = pos.z - offsetXZ; locZ <= pos.z + offsetXZ; locZ += 0.03125f) {
-                    Block block = new Location(data.getPlayer().getWorld(), locX, locY, locZ).getBlock();
+                    final Block block = new Location(data.getPlayer().getWorld(), locX, locY, locZ).getBlock();
                     if(!collidingBlocks.contains(block)) {
                         collidingBlocks.add(block);
                     }
@@ -63,12 +63,12 @@ public class CollisionProcessor {
         final Vector3d pos = new Vector3d(data.getX(), data.getY(), data.getZ());
 
         final double offsetXZ = 0.3D + 0.125D;
-        final double offsetY = 0.005D;
+        final double offsetY = 0.5001D;
 
         for (double locX = pos.x - offsetXZ; locX <= pos.x + offsetXZ; locX += 0.03125f) {
             for (double locY = pos.y - offsetY; locY <= pos.y + (1.8D + offsetY); locY += 0.03125f) {
                 for (double locZ = pos.z - offsetXZ; locZ <= pos.z + offsetXZ; locZ += 0.03125f) {
-                    Block block = new Location(data.getPlayer().getWorld(), locX, locY, locZ).getBlock();
+                    final Block block = new Location(data.getPlayer().getWorld(), locX, locY, locZ).getBlock();
                     if(!collidingBlocks.contains(block)) {
                         collidingBlocks.add(block);
                     }
