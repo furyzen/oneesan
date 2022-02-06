@@ -38,7 +38,7 @@ public class PacketListener extends PacketListenerAbstract {
 			} else if (PacketType.Play.Client.INTERACT_ENTITY.equals(packetType)) {
 				user.getCombatProcessor().handle(new WrapperPlayClientInteractEntity(event));
 			} else if (PacketType.Play.Client.ANIMATION.equals(packetType)) {
-				user.getCombatProcessor().handle(new WrapperPlayClientInteractEntity(event));
+				user.getCombatProcessor().handle();
 			}
 
 			user.getChecks().forEach(check ->

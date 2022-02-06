@@ -24,8 +24,6 @@ public class AimA extends Check {
 
             final long gcd = MathUtil.getAbsoluteGcd(deltaPitch, lastDeltaPitch);
 
-            Bukkit.broadcastMessage("buffer=" + buffer);
-
             if (Math.abs(deltaPitch) > 0
                     && deltaYaw > 1.25f
                     && data.getAccelYaw() > 0.125) {

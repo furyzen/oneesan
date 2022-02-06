@@ -18,7 +18,7 @@ public class CombatProcessor {
         }
     }
 
-    public void handle(WrapperPlayClientAnimation wrapper) {
+    public void handle() {
         data.setLastSwing(System.currentTimeMillis());
     }
 }

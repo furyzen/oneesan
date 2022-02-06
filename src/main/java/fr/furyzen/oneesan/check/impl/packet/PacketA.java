@@ -7,7 +7,7 @@ import fr.furyzen.oneesan.user.User;
 import fr.furyzen.oneesan.user.data.PlayerData;
 import fr.furyzen.oneesan.util.OSPacket;
 
-@ICheck(name = "Packet [A]", checkState = CheckState.EXPERIMENTAL, description = "check if the player's rotations goes out of bounds.")
+@ICheck(name = "Packet [A]", checkState = CheckState.STABLE, description = "check if the player's rotations goes out of bounds.")
 public class PacketA extends Check {
 
     @Override
