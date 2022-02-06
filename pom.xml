@@ -74,7 +74,7 @@
         <dependency>
             <groupId>com.github.retrooper</groupId>
             <artifactId>packetevents</artifactId>
-            <version>spigot-SNAPSHOT</version>
+            <version>spigot-7d091add15-1</version>
         </dependency>
         <dependency>
             <groupId>org.github.spigot</groupId>

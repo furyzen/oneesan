@@ -22,4 +22,12 @@ public class OSPacket {
     public boolean isPosition() {
         return packetType == PacketType.Play.Client.PLAYER_FLYING || packetType == PacketType.Play.Client.PLAYER_POSITION_AND_ROTATION || packetType == PacketType.Play.Client.PLAYER_POSITION;
     }
+
+    public boolean isUseEntity() {
+        return packetType == PacketType.Play.Client.INTERACT_ENTITY;
+    }
+
+    public boolean isArmAnimation() {
+        return packetType == PacketType.Play.Client.ANIMATION;
+    }
 }
