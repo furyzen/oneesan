@@ -5,6 +5,7 @@ import com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientPl
 import com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientPlayerPositionAndRotation;
 import com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientPlayerRotation;
 import fr.furyzen.oneesan.user.data.PlayerData;
+import fr.furyzen.oneesan.util.MathUtil;
 import lombok.Data;
 
 @Data
@@ -31,9 +32,13 @@ public class PositionProcessor {
         playerData.setLastMotionY(playerData.getMotionY());
         playerData.setLastMotionZ(playerData.getMotionZ());
 
+        playerData.setLastMotionXZ(playerData.getMotionXZ());
+
         playerData.setMotionX(playerData.getLastX() - playerData.getX());
         playerData.setMotionY(playerData.getLastY() - playerData.getY());
         playerData.setMotionZ(playerData.getLastZ() - playerData.getZ());
+
+        playerData.setMotionXZ(MathUtil.hypot(playerData.getMotionX(), playerData.getMotionZ()));
 
         playerData.setOnGroundClient(wrapper.isOnGround());
 
@@ -53,9 +58,13 @@ public class PositionProcessor {
         playerData.setLastMotionY(playerData.getMotionY());
         playerData.setLastMotionZ(playerData.getMotionZ());
 
+        playerData.setLastMotionXZ(playerData.getMotionXZ());
+
         playerData.setMotionX(playerData.getLastX() - playerData.getX());
         playerData.setMotionY(playerData.getLastY() - playerData.getY());
         playerData.setMotionZ(playerData.getLastZ() - playerData.getZ());
+        
+        playerData.setMotionXZ(MathUtil.hypot(playerData.getMotionX(), playerData.getMotionZ()));
 
         playerData.setOnGroundClient(wrapper.isOnGround());
 

@@ -17,9 +17,12 @@ public class FlightA extends Check {
         if (packet.isPosition() && !data.isOnGroundClient()) {
 
             final boolean isInMidAir = data.getClientAirTicks() > 11;
-            final double predictedY = Math.abs((data.getLastMotionY() - 0.08) * 0.98F) > 0.005 ? (data.getLastMotionY() - 0.08) * 0.98F : 0;
+            final double predictedY = (data.getLastMotionY() - 0.08) * 0.98F;
 
-            if (Math.abs(predictedY - data.getMotionY()) > 0.001 && isInMidAir && data.getMotionXZ() > 0.01) {
+            if (Math.abs(predictedY - data.getMotionY()) > 0.001 && isInMidAir && data.getMotionXZ() > 0.01 &&
+                    Math.abs(predictedY) > 0.005
+                    && (Math.abs(predictedY - data.getMotionY()) - 0.15) > 0.05
+                    && (Math.abs(predictedY - data.getMotionY()) - 0.305) > 0.05) {
                 if (++buffer > 4)
                     flag(user, String.format("diff=%f", Math.abs(predictedY - data.getMotionY())));
             } else if (buffer > 0) buffer -= 0.1D;
