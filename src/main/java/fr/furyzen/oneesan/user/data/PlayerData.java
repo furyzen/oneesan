@@ -21,5 +21,9 @@ public class PlayerData {
 
     private int clientAirTicks, serverAirTicks;
 
+    private long lastAttack, lastEntity, lastSwing;
+
+    private long lastFlyingPacket;
+
     private ClientVersion clientVersion;
 }

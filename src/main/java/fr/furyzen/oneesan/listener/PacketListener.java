@@ -4,10 +4,7 @@ import com.github.retrooper.packetevents.event.*;
 import com.github.retrooper.packetevents.protocol.packettype.PacketType;
 import com.github.retrooper.packetevents.protocol.packettype.PacketTypeCommon;
 import com.github.retrooper.packetevents.protocol.player.ClientVersion;
-import com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientPlayerFlying;
-import com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientPlayerPosition;
-import com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientPlayerPositionAndRotation;
-import com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientPlayerRotation;
+import com.github.retrooper.packetevents.wrapper.play.client.*;
 import fr.furyzen.oneesan.Oneesan;
 import fr.furyzen.oneesan.user.User;
 import fr.furyzen.oneesan.util.OSPacket;
@@ -38,7 +35,10 @@ public class PacketListener extends PacketListenerAbstract {
 				user.getPositionProcessor().handle(new WrapperPlayClientPlayerPositionAndRotation(event));
 				user.getRotationProcessor().handle(new WrapperPlayClientPlayerPositionAndRotation(event));
 				user.getCollisionProcessor().handle(new WrapperPlayClientPlayerPositionAndRotation(event));
-
+			} else if (PacketType.Play.Client.INTERACT_ENTITY.equals(packetType)) {
+				user.getCombatProcessor().handle(new WrapperPlayClientInteractEntity(event));
+			} else if (PacketType.Play.Client.ANIMATION.equals(packetType)) {
+				user.getCombatProcessor().handle(new WrapperPlayClientInteractEntity(event));
 			}
 
 			user.getChecks().forEach(check ->

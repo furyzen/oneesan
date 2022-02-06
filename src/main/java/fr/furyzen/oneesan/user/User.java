@@ -8,6 +8,7 @@ import fr.furyzen.oneesan.check.impl.flight.FlightA;
 import fr.furyzen.oneesan.check.impl.packet.PacketA;
 import fr.furyzen.oneesan.user.data.PlayerData;
 import fr.furyzen.oneesan.user.processor.CollisionProcessor;
+import fr.furyzen.oneesan.user.processor.CombatProcessor;
 import fr.furyzen.oneesan.user.processor.PositionProcessor;
 import fr.furyzen.oneesan.user.processor.RotationProcessor;
 import lombok.Getter;
@@ -27,6 +28,7 @@ public class User {
     private final PositionProcessor positionProcessor;
     private final RotationProcessor rotationProcessor;
     private final CollisionProcessor collisionProcessor;
+    private final CombatProcessor combatProcessor;
 
     private final Map<Check, Integer> violations;
     private final List<Check> checks;
@@ -43,6 +45,7 @@ public class User {
         positionProcessor = new PositionProcessor(getPlayerData());
         rotationProcessor = new RotationProcessor(getPlayerData());
         collisionProcessor = new CollisionProcessor(getPlayerData());
+        combatProcessor = new CombatProcessor(getPlayerData());
 
         initializeChecks();
     }
