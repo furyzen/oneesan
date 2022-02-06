@@ -17,9 +17,9 @@ public class PlayerData {
     private float yaw, pitch, deltaYaw, deltaPitch, lastYaw, lastPitch,
             lastDeltaYaw, lastDeltaPitch, accelYaw, accelPitch;
 
-    private boolean onGroundClient, onGroundServer, liquid, ice, web, climbable, collisionOnGround;
+    private boolean onGroundClient, onGroundServer, collidingLiquid, collidingIce, collidingWeb, collidingClimbable, collidingGround;
 
-    private int clientAirTicks;
+    private int clientAirTicks, serverAirTicks;
 
     private ClientVersion clientVersion;
 }

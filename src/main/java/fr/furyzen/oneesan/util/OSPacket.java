@@ -19,8 +19,7 @@ public class OSPacket {
     public boolean isRotation() {
         return packetType == PacketType.Play.Client.PLAYER_POSITION_AND_ROTATION || packetType == PacketType.Play.Client.PLAYER_ROTATION;
     }
-
     public boolean isPosition() {
-        return packetType == PacketType.Play.Client.PLAYER_POSITION_AND_ROTATION || packetType == PacketType.Play.Client.PLAYER_POSITION;
+        return packetType == PacketType.Play.Client.PLAYER_FLYING || packetType == PacketType.Play.Client.PLAYER_POSITION_AND_ROTATION || packetType == PacketType.Play.Client.PLAYER_POSITION;
     }
 }

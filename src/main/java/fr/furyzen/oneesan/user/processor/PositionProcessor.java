@@ -12,7 +12,7 @@ public class PositionProcessor {
 
     private final PlayerData playerData;
 
-    public void handle(WrapperPlayClientPlayerFlying<?> wrapper) {
+    public void handle(WrapperPlayClientPlayerFlying wrapper) {
         playerData.setOnGroundClient(wrapper.isOnGround());
 
         playerData.setOnGroundServer(playerData.getY() % (1 / 64D) <= 0.001);
@@ -34,6 +34,10 @@ public class PositionProcessor {
         playerData.setMotionX(playerData.getLastX() - playerData.getX());
         playerData.setMotionY(playerData.getLastY() - playerData.getY());
         playerData.setMotionZ(playerData.getLastZ() - playerData.getZ());
+
+        playerData.setOnGroundClient(wrapper.isOnGround());
+
+        playerData.setOnGroundServer(playerData.getY() % (1 / 64D) <= 0.001);
     }
 
     public void handle(WrapperPlayClientPlayerPositionAndRotation wrapper) {
@@ -52,5 +56,15 @@ public class PositionProcessor {
         playerData.setMotionX(playerData.getLastX() - playerData.getX());
         playerData.setMotionY(playerData.getLastY() - playerData.getY());
         playerData.setMotionZ(playerData.getLastZ() - playerData.getZ());
+
+        playerData.setOnGroundClient(wrapper.isOnGround());
+
+        playerData.setOnGroundServer(playerData.getY() % (1 / 64D) <= 0.001);
+    }
+
+    public void handle(WrapperPlayClientPlayerRotation wrapper) {
+        playerData.setOnGroundClient(wrapper.isOnGround());
+
+        playerData.setOnGroundServer(playerData.getY() % (1 / 64D) <= 0.001);
     }
 }

@@ -2,6 +2,7 @@ package fr.furyzen.oneesan.user;
 
 
 import fr.furyzen.oneesan.check.Check;
+import fr.furyzen.oneesan.check.impl.misc.Ground;
 import fr.furyzen.oneesan.check.impl.flight.FlightA;
 import fr.furyzen.oneesan.check.impl.packet.PacketA;
 import fr.furyzen.oneesan.user.data.PlayerData;
@@ -43,12 +44,13 @@ public class User {
         collisionProcessor = new CollisionProcessor(getPlayerData());
 
         initializeChecks();
-
-        if(player.hasPermission("oneesan.alerts")) alerts = true;
     }
 
     void initializeChecks() {
         checks.add(new PacketA());
+
+        checks.add(new Ground());
+
         checks.add(new FlightA());
     }
 

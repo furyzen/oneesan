@@ -72,10 +72,9 @@
     </repositories>
     <dependencies>
         <dependency>
-            <groupId>com.github.retrooper.packetevents</groupId>
-            <artifactId>spigot</artifactId>
-            <version>2.0-deec409f02-1</version>
-            <scope>compile</scope>
+            <groupId>com.github.retrooper</groupId>
+            <artifactId>packetevents</artifactId>
+            <version>spigot-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.github.spigot</groupId>

@@ -27,8 +27,6 @@ public abstract class Check {
     }
 
     public void flag(User user, String detectionInfo) {
-        if(user.getPlayer().getGameMode().equals(GameMode.CREATIVE) || user.getPlayer().getGameMode().equals(GameMode.SPECTATOR)) return;
-
         boolean experimental = checkState.equals(CheckState.EXPERIMENTAL);
 
         if(!experimental) user.addViolation(this);

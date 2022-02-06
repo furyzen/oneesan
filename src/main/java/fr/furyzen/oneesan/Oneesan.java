@@ -5,6 +5,7 @@ import fr.furyzen.oneesan.command.CommandManager;
 import fr.furyzen.oneesan.command.AnticheatCommand;
 import fr.furyzen.oneesan.configuration.Configuration;
 import fr.furyzen.oneesan.listener.PacketListener;
+import fr.furyzen.oneesan.listener.UserListener;
 import fr.furyzen.oneesan.user.UserManager;
 import fr.furyzen.oneesan.util.theme.ThemeLoader;
 import io.github.retrooper.packetevents.factory.spigot.SpigotPacketEventsBuilder;
@@ -42,6 +43,7 @@ public enum Oneesan {
         getPlugin().getCommand("oneesan").setExecutor(new AnticheatCommand());
         commandManager = new CommandManager();
 
+        Bukkit.getServer().getPluginManager().registerEvents(new UserListener(), plugin);
         PacketEvents.getAPI().getEventManager().registerListener(new PacketListener());
         PacketEvents.getAPI().init();
     }

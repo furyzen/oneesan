@@ -5,7 +5,7 @@ import fr.furyzen.oneesan.command.ICommand;
 import fr.furyzen.oneesan.util.theme.ThemeLoader;
 import org.bukkit.command.CommandSender;
 
-@ICommand(permission = "oneesan.help", names = { "help", "h" })
+@ICommand(permission = "oneesan.help", names = { "help", "h" }, description = "get a list of the commands.")
 public class HelpCommand extends Command {
 
     @Override

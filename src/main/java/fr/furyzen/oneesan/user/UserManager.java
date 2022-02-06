@@ -36,4 +36,9 @@ public class UserManager {
         return userMap.values().stream().filter(user ->
                 user.getPlayer().equals(player)).findFirst().orElse(null);
     }
+
+    public User getUser(String playerName) {
+        return userMap.values().stream().filter(user ->
+                user.getPlayer().getName().equalsIgnoreCase(playerName)).findFirst().orElse(null);
+    }
 }

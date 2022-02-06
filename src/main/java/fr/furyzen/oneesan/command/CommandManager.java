@@ -1,6 +1,6 @@
 package fr.furyzen.oneesan.command;
 
-import fr.furyzen.oneesan.command.impl.HelpCommand;
+import fr.furyzen.oneesan.command.impl.*;
 import lombok.Getter;
 
 import java.util.ArrayList;
@@ -15,5 +15,7 @@ public class CommandManager {
         commandList = new ArrayList<>();
 
         commandList.add(new HelpCommand());
+        commandList.add(new PingCommand());
+        commandList.add(new AlertCommand());
     }
 }
