@@ -1,0 +1,8 @@
+name: Oneesan
+description: Minecraft anticheat designed for 1.20.x Spigot/Paper servers, supporting 1.8.x-1.20.x client versions.
+version: "{{ version }}"
+author: furyzen
+main: fr.furyzen.oneesan.OneesanPlugin
+api-version: '1.20'
+depend:
+  - packetevents

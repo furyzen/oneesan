@@ -1,3 +1,13 @@
+# Idea
+out/
+*.ipr
+*.iws
 *.iml
-/.idea
-/target
+.idea/
+
+# Gradle
+build/
+.gradle
+
+# Others
+run/
