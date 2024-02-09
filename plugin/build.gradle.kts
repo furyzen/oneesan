@@ -22,7 +22,6 @@ tasks {
     named<RunServer>("runServer") {
         minecraftVersion("1.20.4")
     }
-    //Enlever packetevents du shadow et finir implementation blossom
     named<ShadowJar>("shadowJar") {
         dependencies {
             exclude("net.kyori::")
