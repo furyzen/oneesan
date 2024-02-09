@@ -1,0 +1,20 @@
+package fr.furyzen.oneesan.utilities;
+
+import fr.furyzen.oneesan.utilities.Value;
+
+// why
+public enum Constants {
+    NAME(Value.of("Oneesan")),
+    VERSION(Value.of("{# @pebvariable name="version" type="" #}{{ version }}")),
+    AUTHOR(Value.of("furyzen"));
+
+    private final Value<?> value;
+
+    Constants(Value<?> value) {
+        this.value = value;
+    }
+
+    public Value<?> get() {
+        return value;
+    }
+}

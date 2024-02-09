@@ -21,6 +21,10 @@ tasks {
     }
     named<RunServer>("runServer") {
         minecraftVersion("1.20.4")
+
+        downloadPlugins {
+            github("retrooper", "packetevents", "v2.2.0", "packetevents-spigot-2.2.0.jar")
+        }
     }
     named<ShadowJar>("shadowJar") {
         dependencies {
@@ -39,6 +43,9 @@ tasks {
 sourceSets {
     main {
         blossom {
+            javaSources {
+                property("version", project.version.toString())
+            }
             resources {
                 property("version", project.version.toString())
             }
