@@ -6,15 +6,9 @@ import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.builder.RequiredArgumentBuilder;
 import fr.furyzen.oneesan.Oneesan;
 import fr.furyzen.oneesan.command.annotation.CommandMetadata;
-import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.minecraft.commands.CommandSourceStack;
 
 import java.util.Arrays;
-
-import static net.kyori.adventure.text.Component.empty;
-import static net.kyori.adventure.text.Component.text;
-import static net.kyori.adventure.text.format.TextColor.color;
 
 public abstract class AbstractCommand {
     private final CommandMetadata commandMetadata = getClass().getAnnotation(CommandMetadata.class);

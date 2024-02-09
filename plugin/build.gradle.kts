@@ -1,5 +1,4 @@
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
-import net.kyori.blossom.Blossom
 import xyz.jpenilla.runpaper.task.RunServer
 
 plugins {
