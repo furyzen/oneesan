@@ -1,9 +1,0 @@
-#
-# Here is the configuration file for Oneesan
-#
-
-# The theme Oneesan use, see theme.yml for more informations.
-theme: "oneesan"
-
-# How many time Oneesan will wait after sending a new flag (in milliseconds)
-flagTimer: 300
