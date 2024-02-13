@@ -12,13 +12,9 @@ import java.util.Arrays;
 
 public abstract class AbstractCommand {
     private final CommandMetadata commandMetadata = getClass().getAnnotation(CommandMetadata.class);
-
     private final String commandName = commandMetadata.name();
-
     private final String commandDescription = commandMetadata.description();
-
     private final String[] commandAliases = commandMetadata.aliases();
-
 
     public abstract void build(LiteralArgumentBuilder<CommandSourceStack> builder);
 
