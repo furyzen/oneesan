@@ -22,7 +22,7 @@ tasks {
         minecraftVersion("1.20.4")
 
         downloadPlugins {
-            github("retrooper", "packetevents", "v2.2.0", "packetevents-spigot-2.2.0.jar")
+            github("retrooper", "packetevents", "v2.2.1", "packetevents-spigot-2.2.1.jar")
         }
     }
     named<ShadowJar>("shadowJar") {
