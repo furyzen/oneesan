@@ -18,9 +18,8 @@ public class CommandRegistry {
 
     private JavaPlugin plugin;
 
-    private final DedicatedServer dedicatedServer = ((CraftServer) Bukkit.getServer()).getServer();
-
-    private final CommandDispatcher<CommandSourceStack> commandDispatcher = dedicatedServer.resources.managers().commands.getDispatcher();
+    private final CommandDispatcher<CommandSourceStack> commandDispatcher =
+            ((CraftServer) Bukkit.getServer()).getServer().resources.managers().commands.getDispatcher();
 
     private final List<AbstractCommand> commandList = new ArrayList<>();
 
