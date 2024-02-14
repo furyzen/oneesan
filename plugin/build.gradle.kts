@@ -1,4 +1,5 @@
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+import io.papermc.paperweight.tasks.RemapJar
 import xyz.jpenilla.runpaper.task.RunServer
 
 plugins {
@@ -15,23 +16,24 @@ dependencies {
 }
 
 tasks {
-    withType<Jar> {
-        archiveBaseName.set("${rootProject.name}-${project.name}")
-    }
     named<RunServer>("runServer") {
         minecraftVersion("1.20.4")
 
         downloadPlugins {
+            // Required dependencies
             github("retrooper", "packetevents", "v2.2.1", "packetevents-spigot-2.2.1.jar")
+
+            // Optional dependencies
         }
     }
     named<ShadowJar>("shadowJar") {
-        dependencies {
-            exclude("net.kyori::")
-        }
+        dependencies {}
         minimize()
 
         archiveBaseName.set("${rootProject.name}-${project.name}")
+    }
+    named<RemapJar>("reobfJar") {
+        outputJar.set(layout.buildDirectory.file("libs/${rootProject.name}-${project.name}-${project.version}.jar"))
     }
     named("build") {
         dependsOn(shadowJar)

@@ -8,4 +8,9 @@ subprojects {
         maven("https://repo.papermc.io/repository/maven-public/")
         maven("https://repo.codemc.io/repository/maven-releases/")
     }
+    tasks {
+        withType<Jar> {
+            archiveBaseName.set("${rootProject.name}-${project.name}")
+        }
+    }
 }
