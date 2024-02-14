@@ -24,6 +24,9 @@ tasks {
             github("retrooper", "packetevents", "v2.2.1", "packetevents-spigot-2.2.1.jar")
 
             // Optional dependencies
+            hangar("ViaVersion", "4.9.2")
+            hangar("ViaBackwards", "4.9.1")
+            hangar("ViaRewind", "3.0.5")
         }
     }
     named<ShadowJar>("shadowJar") {

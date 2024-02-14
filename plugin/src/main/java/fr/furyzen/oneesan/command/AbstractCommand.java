@@ -24,6 +24,9 @@ public abstract class AbstractCommand {
     public String getCommandDescription() {
         return commandDescription;
     }
+    public String[] getCommandAliases() {
+        return commandAliases;
+    }
 
     public void register(CommandDispatcher<CommandSourceStack> commandDispatcher) {
         register(commandDispatcher, commandName);
