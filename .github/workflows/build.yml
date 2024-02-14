@@ -29,5 +29,5 @@ jobs:
         with:
           name: Oneesan
           path: |
-            **/build/libs/Oneesan-*-*.jar
-            !**/build/libs/Oneesan-*-*-dev*.jar
+            */build/libs/oneesan-*-*.jar
+            !*/build/libs/oneesan-*-*-dev*.jar
